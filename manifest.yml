@@ -1,0 +1,6 @@
+applications:
+- name: chatbot-popup-example
+  host: chatbot-popup-example
+  command: npm start
+  path: .
+  instances: 1
