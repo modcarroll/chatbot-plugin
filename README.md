@@ -1,19 +1,75 @@
-# Chatbot Pop-Up
+# Watson Assistant Pop-Up Sample Application
+This Node.js app demonstrates the Watson Assistant service in a simple chat pop-up interface.
 
-A pop-up chatbot that may be imbedded on a website.
+## Prerequisites
 
-## Deployment
+1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/).
+1. Download the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview).
+1. Create an instance of the Watson Assistant service and get your credentials:
+    - Go to the [Watson Assistant](https://console.bluemix.net/catalog/services/conversation) page in the IBM Cloud Catalog.
+    - Log in to your IBM Cloud account.
+    - Click **Create**.
+    - Click **Show** to view the service credentials.
+    - Copy the `apikey` value, or copy the `username` and `password` values if your service instance doesn't provide an `apikey`.
+    - Copy the `url` value.
 
-If the application doesn't exist, push the initial application to the cloud.  The app will not have services attached to it and it will fail... but it will create the application.  From the root of this repository:
+## Configuring the application
 
-`ibmcloud push`
+1. In your IBM Cloud console, open the Watson Assistant service instance.
 
-Once the application is created, then create the services:
+2. Click the menu icon in the upper-right corner of the workspace tile, and then select **View details**.
 
-### Services
-1. Create the Conversation service on IBM Cloud
-2. Connect it to the application
-3. Create credentials/service keys
-5. Create a `.env` file that follows the [`.env.example`](.env.example) format
+3. Click the copy icon to copy the workspace ID to the clipboard.
 
-Then restart the application!
+4. In the application folder, copy the *.env.example* file and create a file called *.env*
+
+    ```
+    cp .env.example .env
+    ```
+
+5. Open the *.env* file and add the service credentials that you obtained in the previous step.
+
+## Running locally
+
+1. Install the dependencies
+
+    ```
+    npm install
+    ```
+
+2. Run the application
+
+    ```
+    npm start
+    ```
+
+3. View the application in a browser at `localhost:3000`
+
+## Deploying to IBM Cloud as a Cloud Foundry Application
+
+1. Login to IBM Cloud with the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview)
+
+    ```
+    ibmcloud login
+    ```
+
+2. Target a Cloud Foundry organization and space.
+
+    ```
+    ibmcloud target --cf
+    ```
+
+3. Edit the *manifest.yml* file. Change the **name** field to something unique.  
+  For example:
+    ```
+    - name: my-app-name
+    ```
+
+4. Deploy the application
+
+    ```
+    ibmcloud app push
+    ```
+
+5. View the application online at the app URL.  
+For example: https://my-app-name.mybluemix.net
