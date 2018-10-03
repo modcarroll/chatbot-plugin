@@ -10,8 +10,7 @@ This Node.js app demonstrates the Watson Assistant service in a simple chat pop-
     - Log in to your IBM Cloud account.
     - Click **Create**.
     - Click **Show** to view the service credentials.
-    - Copy the `apikey` value, or copy the `username` and `password` values if your service instance doesn't provide an `apikey`.
-    - Copy the `url` value.
+    - Copy the `username` and `password`.
 
 ## Configuring the application
 
